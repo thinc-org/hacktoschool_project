@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faArrowRight, faBars, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faBars, faChevronDown, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
     const [isNavVisible, setNavVisible] = useState(false);
@@ -57,7 +57,10 @@ export default function Header() {
                 </>
             )}
             <div className="mobile-header">
-                <button onClick={toggleNav} className="burger"><FontAwesomeIcon icon={faBars}/></button>
+                <button onClick={toggleNav} className="burger">
+                    {(!isNavVisible && isSmallScreen) && <FontAwesomeIcon icon={faBars}/>}
+                    {(isNavVisible && isSmallScreen) && <FontAwesomeIcon icon={faXmark}/>}
+                </button>
                 <p className="mobile-logo">GlobalTalk</p>
                 <div className="mobile-login">
                     <button className="loginbtn">Login <FontAwesomeIcon icon={faArrowRight}/></button>
