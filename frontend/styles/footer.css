@@ -1,0 +1,55 @@
+.footer {
+    position: fixed; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    height: 140px;
+    background: #F6F5F4;
+    left: 0px;
+    bottom: 0px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    font-size: 14px;
+    color: #757575;
+    gap: 10px;
+}
+
+.upper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.upper a:hover {
+    color: #000000;
+}
+
+.footer-topics {
+    text-align: center;
+    padding: 5px 5px;
+}
+
+.thinc {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.thinc-logo{
+    height: 40px;
+}
+
+.horline{
+    width: 800px;
+    display: flex;
+    align-items: center;
+    height: 1.5px;
+    background-color: #E0E0E0;
+}
