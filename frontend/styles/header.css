@@ -1,7 +1,5 @@
 .header {
     position: fixed;  
-    grid-template-areas: "nav";
-
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -10,7 +8,6 @@
     height: 88px;
     left: 0.05px;
     top: 0px;
-  
     background: #F6F5F4;
     box-shadow: inset 0px -1px 0px #E0E0E0;
     font-family: 'Montserrat';
@@ -145,11 +142,95 @@
     color: #000000;
 }
 
+.mobile-header {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+
 .burger {
     display: none;
-    grid-area: burger;
-    font-size: 40px;
-    position: fixed;
+    font-size: 32px;
+    width: 59.76px;
+}
+
+.mobile-logo {
+    display: none;
+    font-family: 'Dela Gothic One';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.user {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    width: max-content;
+    height: 60px;
+}
+
+.user-pic {
+    height: 32px;
+    width: 32px; 
+    border-radius: 50%;
+    background: #C3DCE3;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.04em;
+    color: #2B788B;
+}
+
+.user-dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.user-name {
+    width: max-content;
+    font-weight: 600;
+    line-height: 140%;
+    color: #757575;
+    padding: 4px;
+}
+
+.user-name:hover {
+    color: #333333;
+}   
+
+.user-content {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: 65px;
+    background: #FFFFFF;
+    box-shadow: 0px 343.472px 343.472px rgba(52, 41, 39, 0.08), 0px 183.185px 183.185px rgba(52, 41, 39, 0.12), 0px 91.5925px 91.5925px rgba(52, 41, 39, 0.04), 0px 68.6944px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 11.4491px rgba(52, 41, 39, 0.04);
+    border-radius: 14px;
+}
+
+.user:hover .user-content {
+    display: flex;
+}
+
+.user-content a {
+    font-weight: 600;
+    color: #828282;
+}
+
+.user-content a:hover {
+    color: #333333;
 }
 
 @media only screen and (max-width: 700px) {
@@ -172,10 +253,22 @@
         height: 92px;
         top: 300px;
     }
+    .mobile-header {
+        display: flex;
+    }
     .burger {
-        display: block;
+        display: flex;
+    }
+    .mobile-logo {
+        display: flex;
+    }
+    .user {
+        display: flex;
     }
     .logo {
+        display: none;
+    }
+    .verline {
         display: none;
     }
     .header-right {

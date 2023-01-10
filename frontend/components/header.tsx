@@ -41,8 +41,7 @@ export default function Header() {
                             <a href="/" className="topics">Textbook</a>
                             <a href="/" className="topics">Statistics</a>
                             <div className="dropdown">
-                                <button className="dropbtn">Games <FontAwesomeIcon icon={faChevronDown}/>
-                                </button>
+                                <button className="dropbtn">Games <FontAwesomeIcon icon={faChevronDown}/></button>
                                 <div className="dropdown-content">
                                     <a href="/">Sprint <FontAwesomeIcon icon={faArrowRight}/></a>
                                     <a href="/">Audio-call <FontAwesomeIcon icon={faArrowRight} /></a>
@@ -57,8 +56,20 @@ export default function Header() {
 
                 </>
             )}
-            <button onClick={toggleNav} className="burger"><FontAwesomeIcon icon={faBars} /></button>
+            <div className="mobile-header">
+                <button onClick={toggleNav} className="burger"><FontAwesomeIcon icon={faBars}/></button>
+                <p className="mobile-logo">GlobalTalk</p>
+                <div className="mobile-login">
+                    <button className="loginbtn">Login <FontAwesomeIcon icon={faArrowRight}/></button>
+                </div>
+            </div>                
         </header>
     )
 }
-// <i className="fa fa-bars"></i>
+/*<div className="user">
+<div className="user-pic"><p>A</p></div>
+<button className="user-name">Alex <FontAwesomeIcon icon={faChevronDown}/></button>
+<div className="user-content">
+    <a href="/">Log Out <FontAwesomeIcon icon={faArrowRight}/></a>
+</div>
+</div>*/
