@@ -3,9 +3,9 @@
     grid-template-areas: "nav";
 
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     align-items: center;
-    padding: 24px 370px;
+    padding: 24px;
     width: 100%;
     height: 88px;
     left: 0.05px;
@@ -14,11 +14,12 @@
     background: #F6F5F4;
     box-shadow: inset 0px -1px 0px #E0E0E0;
     font-family: 'Montserrat';
+    font-style: normal;
+    letter-spacing: -0.04em;
 }
 
-.wrapper {
+.header-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -28,8 +29,13 @@
     font-weight: 400;
     font-size: 20.8609px;
     line-height: 100%;
-    letter-spacing: -0.04em;
     color: #000000;
+}
+
+.verline {
+    padding-left: 30px;
+    padding-right: 14px;
+    color: #E0E0E0;
 }
 
 .nav {
@@ -44,8 +50,6 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 140%;
-    /* or 22px */
-    letter-spacing: -0.04em;
 }
 
 .nav a:hover {
@@ -53,21 +57,14 @@
 }
 
 .topics {
-    /* Primaty/Grey Dark */
     color: #757575;
     text-align: center;
     padding: 14px 16px;
 }
 
 .dropbtn {
-    float: left;
-    font-style: normal;
     font-weight: 600;
-    font-size: 16px;
     line-height: 140%;
-    /* or 22px */
-    letter-spacing: -0.04em;
-    /* Primaty/Grey Dark */
     color: #757575;
     text-align: center;
     padding: 14px 16px;
@@ -111,25 +108,41 @@
     height: 92px;
     top: 70.11px;
     background: #FFFFFF;
-    /* Shadow 1 */
     box-shadow: 0px 343.472px 343.472px rgba(52, 41, 39, 0.08), 0px 183.185px 183.185px rgba(52, 41, 39, 0.12), 0px 91.5925px 91.5925px rgba(52, 41, 39, 0.04), 0px 68.6944px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 11.4491px rgba(52, 41, 39, 0.04);
     border-radius: 14px;
 }
 
+.header-right {
+    display: flex;
+    gap: 24px;
+}
+
 .loginbtn {
-    font-family: 'Montserrat';
-    font-style: normal;
+    width: max-content;
     font-weight: 700;
-    font-size: 16px;
     line-height: 100%;
-    /* identical to box height, or 20px */
-
-    letter-spacing: -0.04em;
-
     color: #000000;
+}
 
-    position: absolute;
-    right: 370px;
+.loginbtn:hover {
+    color: #757575;
+}
+
+.signupbtn {
+    float: left;
+    width: 100px;
+    height: 48px;
+    background: #2B788B;
+    border-radius: 17.0304px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.signupbtn:hover {
+    background: #78b8c8;
+    color: #000000;
 }
 
 .burger {
@@ -148,20 +161,24 @@
         background: #F4F4F2;
         position: fixed;
         top: 88px;
+        left: 0px;
         width: 100vw;
         height: calc(100vh - 88px);
-        padding: 149px 350px;
+        padding-top: 100px;
     }
     .dropdown:hover .dropdown-content {
         position: absolute;
-        width: 215px;
+        width: 135px;
         height: 92px;
-        top: 350px;
+        top: 300px;
     }
     .burger {
         display: block;
     }
     .logo {
+        display: none;
+    }
+    .header-right {
         display: none;
     }
 }

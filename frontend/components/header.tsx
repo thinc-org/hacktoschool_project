@@ -33,23 +33,30 @@ export default function Header() {
         <header className="header">
             {(isNavVisible || !isSmallScreen) && (
                 <>
-                    <p className="logo">GlobalTalk</p>
-                    <nav className="nav">
-                        <a href="/" className="topics">Home</a>
-                        <a href="/" className="topics">Textbook</a>
-                        <a href="/" className="topics">Statistics</a>
-                        <div className="dropdown">
-                            <button className="dropbtn">Games <FontAwesomeIcon icon={faChevronDown}/>
-                            </button>
-                            <div className="dropdown-content">
-                                <a href="/">Sprint <FontAwesomeIcon icon={faArrowRight}/></a>
-                                <a href="/">Audio-call <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <div className="header-left">
+                        <p className="logo">GlobalTalk</p>
+                        <p className="verline">|</p>
+                        <nav className="nav">
+                            <a href="/" className="topics">Home</a>
+                            <a href="/" className="topics">Textbook</a>
+                            <a href="/" className="topics">Statistics</a>
+                            <div className="dropdown">
+                                <button className="dropbtn">Games <FontAwesomeIcon icon={faChevronDown}/>
+                                </button>
+                                <div className="dropdown-content">
+                                    <a href="/">Sprint <FontAwesomeIcon icon={faArrowRight}/></a>
+                                    <a href="/">Audio-call <FontAwesomeIcon icon={faArrowRight} /></a>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
+                    <div className="header-right">
+                        <button className="loginbtn">Login <FontAwesomeIcon icon={faArrowRight}/></button>
+                        <button className="signupbtn">Sign Up</button>
+                    </div>
+
                 </>
             )}
-            <button className="loginbtn">Login</button>
             <button onClick={toggleNav} className="burger"><FontAwesomeIcon icon={faBars} /></button>
         </header>
     )
