@@ -15,7 +15,7 @@
     letter-spacing: -0.04em;
 }
 
-.header-left {
+.headerleft {
     display: flex;
     align-items: center;
 }
@@ -78,22 +78,22 @@
 }
 
 /* Dropdown content (hidden by default) */
-.dropdown-content {
+.dropdowncontent {
     display: none;
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdowncontent a {
     color: #828282;
 }
 
 /* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
+.dropdowncontent a:hover {
     color: #333333;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdowncontent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -108,7 +108,7 @@
     border-radius: 14px;
 }
 
-.header-right {
+.headerright {
     display: flex;
     gap: 24px;
 }
@@ -141,7 +141,7 @@
     color: #000000;
 }
 
-.mobile-header {
+.mobileheader {
     display: none;
     justify-content: space-between;
     align-items: center;
@@ -155,7 +155,7 @@
     color: #000000;
 }
 
-.mobile-logo {
+.mobilelogo {
     display: none;
     font-family: 'Dela Gothic One';
     font-weight: 400;
@@ -173,7 +173,7 @@
     height: 60px;
 }
 
-.user-pic {
+.userpic {
     height: 32px;
     width: 32px; 
     border-radius: 50%;
@@ -188,12 +188,12 @@
     color: #2B788B;
 }
 
-.user-dropdown {
+.userdropdown {
     float: left;
     overflow: hidden;
 }
 
-.user-name {
+.username {
     width: max-content;
     font-weight: 600;
     line-height: 140%;
@@ -201,11 +201,11 @@
     padding: 4px;
 }
 
-.user-name:hover {
+.username:hover {
     color: #333333;
 }   
 
-.user-content {
+.usercontent {
     display: none;
     flex-direction: column;
     align-items: flex-end;
@@ -220,16 +220,16 @@
     border-radius: 14px;
 }
 
-.user:hover .user-content {
+.user:hover .usercontent {
     display: flex;
 }
 
-.user-content a {
+.usercontent a {
     font-weight: 600;
     color: #828282;
 }
 
-.user-content a:hover {
+.usercontent a:hover {
     color: #333333;
 }
 
@@ -237,7 +237,12 @@
     .header {
         justify-content: center;
     }
+
+    .flex {
+        display:flex;
+    }
     .nav {
+
         flex-direction: column;
         background: #F4F4F2;
         position: fixed;
@@ -247,19 +252,19 @@
         height: calc(100vh - 88px);
         padding-top: 100px;
     }
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdowncontent {
         position: absolute;
         width: 135px;
         height: 92px;
         top: 300px;
     }
-    .mobile-header {
+    .mobileheader {
         display: flex;
     }
     .burger {
         display: flex;
     }
-    .mobile-logo {
+    .mobilelogo {
         display: flex;
     }
     .user {
@@ -271,7 +276,7 @@
     .verline {
         display: none;
     }
-    .header-right {
+    .headerright {
         display: none;
     }
 }
