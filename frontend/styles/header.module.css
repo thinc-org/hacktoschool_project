@@ -1,7 +1,7 @@
 .header {
     position: fixed;  
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 24px;
     width: 100%;
@@ -13,6 +13,14 @@
     font-family: 'Montserrat';
     font-style: normal;
     letter-spacing: -0.04em;
+}
+
+.seventyvw {
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 .headerleft {
@@ -231,6 +239,22 @@
 
 .usercontent a:hover {
     color: #333333;
+}
+
+@media only screen and (max-width: 1100px) {
+    .seventyvw {
+        width: max-content;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .verline {
+        padding-left: 10px;
+        padding-right: 0px;
+    }
+    .topics {
+        padding: 14px 10px;
+    }
 }
 
 @media only screen and (max-width: 700px) {

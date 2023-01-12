@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header className={headerStyle.header}>
       {(isNavVisible || !isSmallScreen) && (
-        <>
+        <div className={headerStyle.seventyvw}>
           <div className={headerStyle.headerleft}>
             <p className={headerStyle.logo}>GlobalTalk</p>
             <p className={headerStyle.verline}>|</p>
@@ -72,7 +72,7 @@ export default function Header() {
             </button>
             <button className={headerStyle.signupbtn}>Sign Up</button>
           </div>
-        </>
+        </div>
       )}
       <div className={headerStyle.mobileheader}>
         <button onClick={toggleNav} className={headerStyle.burger}>
