@@ -7,6 +7,9 @@ export class CoursesDB {
     @Prop()
     _id: Types.ObjectId;
 
+    @Prop()
+    courseName: string;
+
 
 
 }
