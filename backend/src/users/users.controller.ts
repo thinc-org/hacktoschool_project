@@ -10,12 +10,12 @@ export class UsersController {
 
     
     @Get()
-    async getCourseData() : Promise<UsersDB[]> {
+    async getUserData() : Promise<UsersDB[]> {
         return this.coursesService.getUsersData();
     }
 
     @Post("/post")
-    async createCourse(@Body() createCourseDto: CreateUserDto): Promise<UsersDB> {
+    async createUser(@Body() createCourseDto: CreateUserDto): Promise<UsersDB> {
         
         return await this.coursesService.createUsersData(createCourseDto);
 
