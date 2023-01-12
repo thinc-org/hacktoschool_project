@@ -138,6 +138,8 @@ export default function Signup(this: any) {
 
   const handleSignup = () => {
     // susu naaaa tum mai pen leaw
+    console.log(state.username);
+    console.log(state.password);
   };
 
   const handleNicknameChange: React.ChangeEventHandler<HTMLInputElement> = (

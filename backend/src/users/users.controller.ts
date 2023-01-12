@@ -1,10 +1,12 @@
 import { Get, Post ,Body, Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { check } from 'prettier';
 import { CheckUserDto } from 'src/dto/check-user.dto';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UsersDB } from 'src/schemas/usersdb.schema';
 import { UsersService } from './users.service';
 
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
 
