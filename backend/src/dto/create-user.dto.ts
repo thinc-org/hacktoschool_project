@@ -5,13 +5,13 @@ export class CreateUserDto {
 
 
     @ApiProperty()
-    nickName: string;
+    nickname: string;
 
     @ApiProperty()
-    firstName: string;
+    firstname: string;
 
     @ApiProperty()
-    lastName: string;
+    lastname: string;
 
     @ApiProperty()
     description: string;

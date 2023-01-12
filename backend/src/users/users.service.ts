@@ -20,12 +20,12 @@ export class UsersService {
 
     async createUsersData(user: CreateUserDto): Promise<UsersDB> {
 
-        const bcrypt = require('bcrypt');
+        const bcryptts = require('bcrypt-ts')
 
-
+        console.log(user)
         const _id = Date.now()+"";
         const beforeHash = user.password;
-        const hash = bcrypt.hashSync(beforeHash,10);
+        const hash = bcryptts.hashSync(beforeHash,10);
         user.password=hash;
 
         const newUser = new this.usersModel({ _id, ...user});        
@@ -35,20 +35,19 @@ export class UsersService {
     async checkUsernameExists(authen: CheckUserDto): Promise<boolean>{
 
         const { username: username } = authen;
-        if (await this.usersModel.exists({ username: username})){
-            return true;
-        }
-        return true;
+        const result = await this.usersModel.exists({ username: username});
+
+        return !(result===null);
     }
 
     async checkPassword(authen: CheckUserDto): Promise<boolean> {
 
-        const bcrypt = require('bcrypt');
+        const bcryptts = require('bcrypt-ts')
 
         const { username:username, password: password} = authen;
-        const hash = bcrypt.hashSync(password,10);
+        const hash = bcryptts.hashSync(password,10);
         const data: UsersDB = await this.usersModel.findOne({ username: username});
-        const match = bcrypt.compareSync(data.password,hash);
+        const match = bcryptts.compareSync(data.password,hash);
         if( match) {
             return true;
         } else {

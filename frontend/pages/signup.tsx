@@ -1,4 +1,5 @@
 import axios from "axios";
+import { stat } from "fs";
 import { useEffect, useReducer } from "react";
 import PagesStyle from "../styles/pages.module.css";
 import SignupStyle from "../styles/signup.module.css";
@@ -111,20 +112,60 @@ export default function Signup(this: any) {
     state.password,
   ]);
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
+    console.log("HANDLING");
     // susu naaaa tum mai pen leaw
-    axios
-      .post("http://localhost:4000/signup/", {
+    try {
+      // console.log(state.username);
+      // console.log(state.password);
+      const found = await axios.post(
+        "http://localhost:4000/users/checkUserExist",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: {
+            username: state.username,
+            password: state.password,
+          },
+        }
+      );
+      //console.log(found.data);
+
+      if (found.data) {
+        console.log("username already exists!");
+        return;
+      } else {
+        console.log("Not Found");
+      }
+    } catch (error) {
+      console.log("Unable to check if the username is already exists or not");
+      return;
+    }
+
+    try {
+      const res = await axios.post("http://localhost:4000/users/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state),
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
+        body: {
+          username: state.username,
+          password: state.password,
+          nickname: state.nickname,
+          firstname: state.firstname,
+          lastname: state.lastname,
+          description: state.desc,
+          role: state.isInstructor ? "Instructore" : "Student",
+          imageURL: "",
+          coursesId: [],
+        },
       });
+      console.log("Sign Up Completed!");
+      console.log(res);
+      return;
+    } catch (error) {
+      console.log("create User failed");
+      console.log(error);
+      return;
+    }
   };
 
   const handleNicknameChange: React.ChangeEventHandler<HTMLInputElement> = (
@@ -192,7 +233,7 @@ export default function Signup(this: any) {
 
   return (
     <div className={PagesStyle.pages}>
-      <form>
+      <div>
         <input
           type="text"
           name="nickname"
@@ -243,7 +284,7 @@ export default function Signup(this: any) {
         >
           Sign Up
         </button>
-      </form>
+      </div>
     </div>
   );
 }

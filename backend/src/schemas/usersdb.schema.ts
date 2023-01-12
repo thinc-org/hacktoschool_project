@@ -8,13 +8,13 @@ export class UsersDB {
     _id: Types.ObjectId;
 
     @Prop()
-    nickName: string;
+    nickname: string;
 
     @Prop()
-    firstName: string;
+    firstname: string;
 
     @Prop()
-    lastName: string;
+    lastname: string;
 
     @Prop()
     description: string;

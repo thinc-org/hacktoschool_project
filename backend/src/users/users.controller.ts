@@ -1,6 +1,7 @@
 import { Get, Post ,Body, Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { check } from 'prettier';
+import { concatAll } from 'rxjs';
 import { CheckUserDto } from 'src/dto/check-user.dto';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UsersDB } from 'src/schemas/usersdb.schema';
@@ -27,6 +28,7 @@ export class UsersController {
 
     @Post('/checkUserExist')
     async checkUserExists(@Body() checkUserDto: CheckUserDto): Promise<boolean> {
+        console.log('checking')
         return await this.coursesService.checkUsernameExists(checkUserDto);
     }
 
