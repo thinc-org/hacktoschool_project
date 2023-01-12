@@ -7,6 +7,27 @@ export class UsersDB {
     @Prop()
     _id: Types.ObjectId;
 
+    @Prop()
+    nickName: string;
+
+    @Prop()
+    firstName: string;
+
+    @Prop()
+    lastName: string;
+
+    @Prop()
+    description: string;
+
+    @Prop()
+    role: string;
+
+    @Prop()
+    coursesId: string[];
+
+    @Prop()
+    imageURL: string;
+
 
 
 }
