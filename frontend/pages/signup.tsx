@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useReducer } from "react";
 import PagesStyle from "../styles/pages.module.css";
 import SignupStyle from "../styles/signup.module.css";
@@ -112,11 +113,18 @@ export default function Signup(this: any) {
 
   const handleSignup = () => {
     // susu naaaa tum mai pen leaw
-    fetch("http://localhost:4000/signup/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(state),
-    });
+    axios
+      .post("http://localhost:4000/signup/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state),
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleNicknameChange: React.ChangeEventHandler<HTMLInputElement> = (
