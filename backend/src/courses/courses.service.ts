@@ -22,12 +22,9 @@ export class CoursesService {
     //  }
 
     async createCoursesData(course: CreateCourseDto): Promise<CoursesDB> {
-        console.log('before')  
         const _id = Date.now()+"";
-        const newCourse = await this.coursesModel.create({ _id, ...course});
-        console.log('after')
-        // newCourse.save();
-        return newCourse;
+        const newCourse = await new this.coursesModel({ _id, ...course});        // newCourse.save();
+        return newCourse.save();
     }
 
 }

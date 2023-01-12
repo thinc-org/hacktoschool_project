@@ -7,7 +7,21 @@ export class CreateCourseDto {
     @ApiProperty()
     courseName:string;
 
-    // @ApiProperty({required:false})
-    // no?: number;
+    
+    @ApiProperty()
+    courseBy: string;
+
+    @ApiProperty()
+    summary: string;
+
+    @ApiProperty()
+    detail: string;
+
+    @ApiProperty()
+    imageURL:string;
+
+    // @ApiProperty()
+    // students: string[];
+
 
 }

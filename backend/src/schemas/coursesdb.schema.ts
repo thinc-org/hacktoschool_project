@@ -10,6 +10,20 @@ export class CoursesDB {
     @Prop()
     courseName: string;
 
+    @Prop()
+    courseBy: string;
+
+    @Prop()
+    summary: string;
+
+    @Prop()
+    detail: string;
+
+    @Prop()
+    imageURL:string;
+
+    @Prop()
+    students: string[];
 
 
 }
