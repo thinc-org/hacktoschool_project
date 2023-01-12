@@ -1,6 +1,5 @@
+import axios from "axios";
 import { useEffect, useReducer } from "react";
-import Footer from "../components/footer";
-import Header from "../components/header";
 import PagesStyle from "../styles/pages.module.css";
 import SignupStyle from "../styles/signup.module.css";
 
@@ -13,8 +12,6 @@ type State = {
   username: string;
   password: string;
   isButtonDisabled: boolean;
-  helperText: string;
-  isError: boolean;
 };
 
 const initialState: State = {
@@ -26,8 +23,6 @@ const initialState: State = {
   desc: "",
   isInstructor: false,
   isButtonDisabled: true,
-  helperText: "",
-  isError: false,
 };
 
 type Action =
@@ -38,10 +33,7 @@ type Action =
   | { type: "setPassword"; payload: string }
   | { type: "setDesc"; payload: string }
   | { type: "setIsInstructor"; payload: boolean }
-  | { type: "setIsButtonDisabled"; payload: boolean }
-  | { type: "loginSuccess"; payload: string }
-  | { type: "loginFailed"; payload: string }
-  | { type: "setIsError"; payload: boolean };
+  | { type: "setIsButtonDisabled"; payload: boolean };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -85,23 +77,6 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         isButtonDisabled: action.payload,
       };
-    case "loginSuccess":
-      return {
-        ...state,
-        helperText: action.payload,
-        isError: false,
-      };
-    case "loginFailed":
-      return {
-        ...state,
-        helperText: action.payload,
-        isError: true,
-      };
-    case "setIsError":
-      return {
-        ...state,
-        isError: action.payload,
-      };
   }
 };
 
@@ -138,8 +113,18 @@ export default function Signup(this: any) {
 
   const handleSignup = () => {
     // susu naaaa tum mai pen leaw
-    console.log(state.username);
-    console.log(state.password);
+    axios
+      .post("http://localhost:4000/signup/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state),
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleNicknameChange: React.ChangeEventHandler<HTMLInputElement> = (
@@ -207,7 +192,6 @@ export default function Signup(this: any) {
 
   return (
     <div className={PagesStyle.pages}>
-      <Header></Header>
       <form>
         <input
           type="text"
@@ -260,7 +244,6 @@ export default function Signup(this: any) {
           Sign Up
         </button>
       </form>
-      <Footer></Footer>
     </div>
   );
 }
