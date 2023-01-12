@@ -25,5 +25,11 @@ export class CreateUserDto {
     @ApiProperty()
     imageURL: string;
 
+    @ApiProperty()
+    username: string;
+
+    @ApiProperty()
+    password: string;
+
 
 }

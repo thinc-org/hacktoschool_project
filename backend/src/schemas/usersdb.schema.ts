@@ -28,6 +28,12 @@ export class UsersDB {
     @Prop()
     imageURL: string;
 
+    @Prop()
+    username: string;
+
+    @Prop()
+    password: string;
+
 
 
 }
