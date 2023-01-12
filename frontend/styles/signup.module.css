@@ -1,0 +1,7 @@
+.btn {
+    background-color: green;
+}
+
+.btn:disabled {
+    background-color: red;
+}
