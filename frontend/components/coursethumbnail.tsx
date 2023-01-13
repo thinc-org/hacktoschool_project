@@ -1,4 +1,5 @@
 import React from "react";
+import { text } from "stream/consumers";
 import textbookStyle from "../styles/textbook.module.css";
 
 type CourseData = {
@@ -24,14 +25,21 @@ export default function Coursethumbnail(props: CourseProps) {
         alt="Song yang bad sad yang boi"
         className={textbookStyle.thumbnailphoto}
       ></img>
-      <div className={textbookStyle.coursecontent}>
-        <p className={textbookStyle.coursename}>{course.courseName}</p>
-        <p className={textbookStyle.courseinstructor}>{course.courseBy}</p>
-        <p className={textbookStyle.coursesummary}>{course.summary}</p>
-        <div className={textbookStyle.horline}></div>
-        <p className={textbookStyle.coursedetail}>{course.detail}</p>
-        <button className={textbookStyle.addbtn}>Add this course</button>
-        <button className={textbookStyle.removebtn}>Remove this course</button>
+      <div className={textbookStyle.flex_between}>
+        <div className={textbookStyle.coursecontent}>
+          <p className={textbookStyle.coursename}>{course.courseName}</p>
+          <p className={textbookStyle.courseinstructor}>{course.courseBy}</p>
+          <p className={textbookStyle.coursesummary}>{course.summary}</p>
+        </div>
+
+        <div className={textbookStyle.coursecontent}>
+          <div className={textbookStyle.horline}></div>
+          <p className={textbookStyle.coursedetail}>{course.detail}</p>
+          <button className={textbookStyle.addbtn}>Add this course</button>
+          <button className={textbookStyle.removebtn}>
+            Remove this course
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -33,8 +33,10 @@ export class CoursesService {
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
-
+        console.log("here")
+        console.log(imagesURL)
         course.imageURL = imagesURL[getRandomInt(5)];
+        console.log(course.imageURL)
 
         const _id = Date.now()+"";
         const newCourse = await new this.coursesModel({ _id, ...course});        // newCourse.save();
