@@ -1,5 +1,4 @@
 import axios from "axios";
-import { stat } from "fs";
 import { useEffect, useReducer, useState } from "react";
 import SignupStyle from "../styles/signup.module.css";
 
@@ -96,14 +95,6 @@ export default function Login(this: any) {
           password: state.password,
         },
       });
-      // console.log(res);
-      // console.log(res.data);
-      // if (res.data) {
-      //   console.log("Login successfully!");
-      // } else {
-      //   console.log("Wrong Password!");
-      // }
-      // return;
 
       if (res.status === 403) {
         console.log(res.data);

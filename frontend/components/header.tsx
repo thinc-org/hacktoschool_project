@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import headerStyle from "../styles/header.module.css";
 import Link from "next/link";
+import jwt_decode from "jwt-decode";
 
 export default function Header() {
   //set login state here ;.;
@@ -15,6 +16,15 @@ export default function Header() {
 
   const [isNavVisible, setNavVisible] = useState(false);
   const [isSmallScreen, setSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  }, [isLogin]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
@@ -29,6 +39,16 @@ export default function Header() {
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decode: any = jwt_decode(token);
+      if (decode.exp < Date.now() / 1000) {
+        localStorage.removeItem("token");
+      }
+    }
   }, []);
 
   const handleMediaQueryChange = (mediaQuery: MediaQueryListEvent) => {
