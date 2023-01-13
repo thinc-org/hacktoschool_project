@@ -22,6 +22,13 @@ export class UsersService {
         return await this.usersModel.find().exec();
     }
 
+    async getUserDataById(username: string): Promise<UsersDB> {
+        console.log("username i here "+username)
+        const res = await this.usersModel.findOne({ username: username});
+        console.log(res)
+        return res;
+    }
+
     async createUsersData(reqBody: ReqBodyCreateUserDto): Promise<UsersDB> {
         
         console.log(reqBody)

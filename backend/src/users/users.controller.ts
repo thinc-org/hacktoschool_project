@@ -1,4 +1,4 @@
-import { Get, Post ,Body, Controller, Res, HttpStatus } from '@nestjs/common';
+import { Get, Post ,Body, Controller, Res, HttpStatus, Param } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ReqBodyCheckUserDto } from 'src/dto/req-body-check-user.dto';
 import { ReqBodyCreateUserDto } from 'src/dto/req-body-create-user.dto';
@@ -20,7 +20,13 @@ export class UsersController {
     
     @Get()
     async getUserData() : Promise<UsersDB[]> {
-        return this.usersService.getUsersData();
+        return await this.usersService.getUsersData();
+    }
+
+    @Post('/searchId')
+    async getUserDataByUsername(@Body() reqBodyCheckUserDto:ReqBodyCheckUserDto) : Promise<UsersDB> {
+
+        return await this.usersService.getUserDataById(reqBodyCheckUserDto.body.username);
     }
 
     @Post("/post")
