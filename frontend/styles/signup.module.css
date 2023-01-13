@@ -1,7 +1,74 @@
+.page {
+    background: #F6F5F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.questionholder {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 22.8981px 45.7963px -11.4491px rgba(52, 41, 39, 0.08);
+    border-radius: 14px;
+    padding: 40px;
+    gap: 12px;
+}
+
+.logo {
+    font-family: 'Dela Gothic One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20.8609px;
+    margin-bottom: 6px;
+}
+
+.question {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.textinput {
+    background: #F6F5F4;
+    border-radius: 4px;
+    border-width: 0px;
+    color: #000000;
+    padding: 2px 6px;
+    margin-left: 12px;
+    font-size: 16px;
+}
+
+.checkboxinput {
+    width: 16px;
+    margin-left: 12px;
+}
+
+#askinstructor {
+    justify-content: flex-start;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .btn {
-    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 36px;
+    background: #2B788B;
+    font-weight: 600;
+    border-radius: 8px;
+    color: #FFFFFF;
 }
 
 .btn:disabled {
-    background-color: red;
+    background: #F6F5F4;
+    color: #BABABA;
 }
