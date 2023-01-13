@@ -1,0 +1,180 @@
+.textbookheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    width: 70vw;
+    height: 84px;
+    background: #FFFFFF;
+    border-radius: 14px;
+}
+
+.textbooklogo {
+    font-family: 'Dela Gothic One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+.textbookheaderright {
+    display: flex;
+    align-items: center;
+}
+
+.setting {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.settingbtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    width: 40px;
+    height: 40px;
+    background: #2B788B;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.settingbtn:hover {
+    background: #78b8c8;
+    color: #000000;
+}
+
+.settingcontent {
+    display: none;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    position: absolute;
+    width: 240px;
+    height: 60px;
+    top: 190px;
+    left: calc(81vw - 192px);
+    background: #FFFFFF;
+    border: 1px solid #F6F5F4;
+    box-shadow: 0px 343.472px 343.472px rgba(52, 41, 39, 0.08), 0px 183.185px 183.185px rgba(52, 41, 39, 0.12), 0px 91.5925px 91.5925px rgba(52, 41, 39, 0.04), 0px 68.6944px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 68.6944px rgba(52, 41, 39, 0.04), 0px 11.4491px 11.4491px rgba(52, 41, 39, 0.04);
+    border-radius: 14px;
+}
+
+.setting:hover .settingcontent {
+    display: flex;
+}
+
+.settingcontent input {
+    height: 20px;
+    width: 20px;
+}
+
+.coursecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 350px;
+    background: #FFFFFF;
+    box-shadow: 0px 22.8981px 45.7963px -11.4491px rgba(52, 41, 39, 0.08);
+    border-radius: 14px;
+}
+
+.thumbnailphoto {
+    height: 250px;
+    width: 100%;
+    border-radius: 14px;
+}
+
+.coursecontent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 10px;
+}
+
+.coursename {
+    font-family: 'Dela Gothic One';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: #000000;
+}
+
+.courseinstructor {
+    font-family: 'Dela Gothic One';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: #757575;
+}
+
+.coursesummary {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    color: #000000;
+    padding: 10px 0px;
+}
+
+.horline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 2px;
+    background-color: #E0E0E0;
+}
+
+.coursedetail {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    color: #757575;
+}
+
+.addbtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 20px;
+    width: 160px;
+    height: 32px;
+    background: #639B6D;
+    border-radius: 100px;
+    font-size: 14px;
+    line-height: 140%;
+    color: #F6F5F4;
+}
+
+.addbtn:hover {
+    background: #acdab4;
+    color: #1a4f24;
+}
+
+.removebtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 20px;
+    width: 180px;
+    height: 32px;
+    background: rgba(203, 91, 67, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    line-height: 140%;
+    color: #CB5B43;
+}
+
+.removebtn:hover {
+    background: #CB5B43;
+    color: #F6F5F4;
+}
