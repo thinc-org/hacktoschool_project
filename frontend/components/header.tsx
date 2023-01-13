@@ -57,7 +57,7 @@ export default function Header() {
               <a href="/textbook" className={headerStyle.topics}>
                 Textbook
               </a>
-              <a href="/" className={headerStyle.topics}>
+              <a href="#" className={headerStyle.topics}>
                 Statistics
               </a>
               <div className={headerStyle.dropdown}>
@@ -65,10 +65,10 @@ export default function Header() {
                   Games <FontAwesomeIcon icon={faChevronDown} />
                 </button>
                 <div className={headerStyle.dropdowncontent}>
-                  <a href="/">
+                  <a href="#">
                     Sprint <FontAwesomeIcon icon={faArrowRight} />
                   </a>
-                  <a href="/">
+                  <a href="#">
                     Audio-call <FontAwesomeIcon icon={faArrowRight} />
                   </a>
                 </div>

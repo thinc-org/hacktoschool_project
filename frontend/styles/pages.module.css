@@ -4,7 +4,9 @@
     flex-direction: column;
     align-items: center;
     padding-top: 120px;
-    min-height: calc(100vh - 140px);
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
 }
 
 .contents {

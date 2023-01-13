@@ -17,8 +17,8 @@ export default function Textbook() {
           <Coursethumbnail></Coursethumbnail>
           <Coursethumbnail></Coursethumbnail>
         </div>
+        <Footer></Footer>
       </div>
-      <Footer></Footer>
     </>
   );
 }

@@ -10,16 +10,16 @@ export default function Footer() {
           <a href="/" className={footerStyle.footertopics}>
             Home
           </a>
-          <a href="/" className={footerStyle.footertopics}>
+          <a href="/textbook" className={footerStyle.footertopics}>
             Textbook
           </a>
-          <a href="/" className={footerStyle.footertopics}>
+          <a href="#" className={footerStyle.footertopics}>
             Statistics
           </a>
-          <a href="/" className={footerStyle.footertopics}>
+          <a href="#" className={footerStyle.footertopics}>
             Sprint
           </a>
-          <a href="/" className={footerStyle.footertopics}>
+          <a href="#" className={footerStyle.footertopics}>
             Audio-call
           </a>
         </nav>

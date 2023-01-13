@@ -1,0 +1,192 @@
+.bg {
+    background: #f6f5f4;
+    width: 100%;
+}
+
+.bg2 {
+    background: #fff;
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.contentcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+}
+
+.t1 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19.8688px;
+    line-height: 100%;
+    letter-spacing: 0.14em;
+    color: #2b788b;
+    width: max-content;
+}
+
+.t2 {
+    font-family: "Dela Gothic One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: max-content;
+}
+
+.t3 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22.7072px;
+    line-height: 140%;
+    letter-spacing: -0.04em;
+    color: #585858;
+    width: max-content;
+}
+
+.contentr {
+    padding-left: 60px;
+}
+
+.contentr img {
+    width: 100%;
+    height: auto;
+}
+
+.contentl img {
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.number {
+    font-family: "Dela Gothic One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+}
+
+.user {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon {
+    color: #2b788b;
+}
+
+.text {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 140%;
+    letter-spacing: -0.04em;
+    color: #585858;
+}
+
+.box {
+    text-align: center;
+}
+
+.contentl {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1000px) {
+    .t1 {
+        font-size: 17px;
+    }
+
+    .t2 {
+        font-size: 40px;
+    }
+
+    .t3 {
+        font-size: 20px;
+    }
+
+    .number {
+        font-size: 30px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .contentr img {
+        width: 90%;
+        height: auto;
+    }
+
+    .contentl img {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contentcon {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contentr {
+        padding: 0px;
+    }
+
+    .contentr img {
+        width: 80%;
+        height: auto;
+    }
+
+    .contentl img {
+        width: 80%;
+        height: auto;
+    }
+
+    .t1 {
+        width: auto;
+        text-align: center;
+    }
+
+    .t2 {
+        width: auto;
+        text-align: center;
+    }
+
+    .t3 {
+        width: auto;
+        text-align: center;
+    }
+
+    .contentl {
+        align-items: center;
+    }
+
+    .contentr {
+        align-items: center;
+    }
+}

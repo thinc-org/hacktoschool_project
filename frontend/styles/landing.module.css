@@ -1,0 +1,222 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contentcon {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.t1 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19.8688px;
+    line-height: 100%;
+    letter-spacing: 0.14em;
+    color: #2b788b;
+    width: max-content;
+}
+
+.t2 {
+    font-family: "Dela Gothic One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: max-content;
+}
+
+.t3 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22.7072px;
+    line-height: 140%;
+    letter-spacing: -0.04em;
+    color: #585858;
+    width: max-content;
+}
+
+.contentr img {
+    width: calc(100% - 60px);
+    height: auto;
+    margin-left: 60px;
+    overflow: hidden;
+}
+
+.button {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.signInbutton {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: auto;
+}
+
+.learnMorebutton {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #2b788b;
+    margin-left: 30px;
+    text-decoration: none;
+    background: #c3dce3;
+    width: 190px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 17px;
+    text-align: center;
+}
+
+.number {
+    font-family: "Dela Gothic One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+}
+
+.user {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon {
+    color: #2b788b;
+}
+
+.text {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 140%;
+    letter-spacing: -0.04em;
+    color: #585858;
+}
+
+.box {
+    text-align: center;
+}
+
+.contentl {
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    padding-left: 15px;
+    color: gray;
+    opacity: 30%;
+}
+
+@media screen and (max-width: 1000px) {
+    .t1 {
+        font-size: 17px;
+    }
+
+    .t2 {
+        font-size: 40px;
+    }
+
+    .t3 {
+        font-size: 20px;
+    }
+
+    .number {
+        font-size: 30px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 0px 20px;
+    }
+
+    .contentr img {
+        width: calc(100% - 60px);
+        height: auto;
+        margin-left: 60px;
+    }
+
+    .learnMorebutton {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 17px;
+    }
+
+    .signInbutton {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contentcon {
+        flex-direction: column;
+    }
+
+    .contentr img {
+        width: 80%;
+        height: auto;
+        margin-left: 60px;
+        margin-top: 40px;
+    }
+
+    .contentcon {
+        align-items: center;
+    }
+
+    .t1 {
+        width: auto;
+        text-align: center;
+    }
+
+    .t2 {
+        width: auto;
+        text-align: center;
+    }
+
+    .t3 {
+        width: auto;
+        text-align: center;
+    }
+
+    .button {
+        align-items: center;
+    }
+
+    .contentl {
+        align-items: center;
+    }
+}
