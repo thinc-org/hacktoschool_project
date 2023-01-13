@@ -125,7 +125,6 @@ export default function Signup(this: any) {
           headers: { "Content-Type": "application/json" },
           body: {
             username: state.username,
-            password: state.password,
           },
         }
       );
