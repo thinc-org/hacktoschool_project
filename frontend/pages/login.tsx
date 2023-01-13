@@ -1,6 +1,6 @@
 import axios from "axios";
 import { stat } from "fs";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import SignupStyle from "../styles/signup.module.css";
 
 type State = {
@@ -74,7 +74,6 @@ export default function Login(this: any) {
           },
         }
       );
-      //console.log(found.data);
 
       if (found.data) {
         console.log("username already exists!");
@@ -97,14 +96,22 @@ export default function Login(this: any) {
           password: state.password,
         },
       });
-      console.log(res);
-      console.log(res.data);
-      if (res.data) {
-        console.log("Login successfully!");
-      } else {
-        console.log("Wrong Password!");
+      // console.log(res);
+      // console.log(res.data);
+      // if (res.data) {
+      //   console.log("Login successfully!");
+      // } else {
+      //   console.log("Wrong Password!");
+      // }
+      // return;
+
+      if (res.status === 403) {
+        console.log(res.data);
+      } else if (res.status === 200) {
+        const token = res.data;
+        localStorage.setItem("token", token);
+        console.log("Login successfully");
       }
-      return;
     } catch (error) {
       console.log("Login Failed because of server");
       console.log(error);
