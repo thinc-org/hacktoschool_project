@@ -4,10 +4,10 @@ import { BsFillLightningFill } from "react-icons/bs";
 import { RxDividerVertical } from "react-icons/rx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import image1 from "../public/aaa.png";
+import meme from "../public/meme.jpeg";
 import Image from "next/image";
 
-export default function Landing() {
+export default function Landingmeme() {
   return (
     <div className={landingStyle.container}>
       <section className={landingStyle.contentcon}>
@@ -49,7 +49,7 @@ export default function Landing() {
           </div>
         </div>
         <div className={landingStyle.contentr}>
-          <Image src={image1} alt={"a boy"} />
+          <Image src={meme} alt={"a meme"} />
         </div>
       </section>
     </div>
