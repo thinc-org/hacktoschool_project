@@ -78,9 +78,9 @@ export default function Login(this: any) {
 
       if (found.data) {
         console.log("username already exists!");
-        return;
       } else {
         console.log("Not Found");
+        return;
       }
     } catch (error) {
       console.log("Unable to check if the username is already exists or not");
@@ -89,7 +89,7 @@ export default function Login(this: any) {
 
     try {
       // susu naa~~~
-      const res = await axios.post("http://localhost:4000/users/post", {
+      const res = await axios.post("http://localhost:4000/users/checkLogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: {
@@ -97,11 +97,16 @@ export default function Login(this: any) {
           password: state.password,
         },
       });
-      console.log("Sign Up Completed!");
       console.log(res);
+      console.log(res.data);
+      if (res.data) {
+        console.log("Login successfully!");
+      } else {
+        console.log("Wrong Password!");
+      }
       return;
     } catch (error) {
-      console.log("create User failed");
+      console.log("Login Failed because of server");
       console.log(error);
       return;
     }

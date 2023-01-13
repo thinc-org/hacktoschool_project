@@ -1,9 +1,7 @@
 import { Get, Post ,Body, Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { check } from 'prettier';
-import { concatAll } from 'rxjs';
-import { CheckUserDto } from 'src/dto/check-user.dto';
-import { CreateUserDto } from 'src/dto/create-user.dto';
+import { ReqBodyCheckUserDto } from 'src/dto/req-body-check-user.dto';
+import { ReqBodyCreateUserDto } from 'src/dto/req-body-create-user.dto';
 import { UsersDB } from 'src/schemas/usersdb.schema';
 import { UsersService } from './users.service';
 
@@ -20,28 +18,34 @@ export class UsersController {
     }
 
     @Post("/post")
-    async createUser(@Body() createCourseDto: CreateUserDto): Promise<UsersDB> {
+    async createUser(@Body() reqBodyCreateUser: ReqBodyCreateUserDto): Promise<UsersDB> {
         
-        return await this.coursesService.createUsersData(createCourseDto);
+        const res=  await this.coursesService.createUsersData(reqBodyCreateUser);
+        console.log(res)
+        return res;
 
     }
 
     @Post('/checkUserExist')
-    async checkUserExists(@Body() checkUserDto: CheckUserDto): Promise<boolean> {
+    async checkUserExists(@Body() reqBodyCheckUserDto: ReqBodyCheckUserDto): Promise<boolean> {
         console.log('checking')
-        return await this.coursesService.checkUsernameExists(checkUserDto);
+        return await this.coursesService.checkUsernameExists(reqBodyCheckUserDto);
     }
 
     @Post('/checkLogin')
-    async checkLogin(@Body() checkUserDto: CheckUserDto): Promise<string> {
-        if(await this.coursesService.checkUsernameExists(checkUserDto)){
-            if(await this.coursesService.checkPassword(checkUserDto)){
-                return "Logged In";
+    async checkLogin(@Body() reqBodyCheckUserDto: ReqBodyCheckUserDto): Promise<boolean> {
+        if(await this.coursesService.checkUsernameExists(reqBodyCheckUserDto)){
+            if(await this.coursesService.checkPassword(reqBodyCheckUserDto)){
+                console.log("Logged In");
+                return true;
             } else {
-                return "Wrong password";
+                console.log("Wrong password");
+                return false;
             }
         } else {
-            return "Username not found";
+
+            console.log("Username not found");
+            return false;
         }
     }
 
