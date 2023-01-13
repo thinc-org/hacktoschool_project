@@ -6,6 +6,8 @@ import * as bcrypt from "bcrypt"
 import { ReqBodyCreateUserDto } from 'src/dto/req-body-create-user.dto';
 import { ReqBodyCheckUserDto } from 'src/dto/req-body-check-user.dto';
 import { JwtDataDto } from 'src/dto/jwt-data.dto';
+import { ReqBodyAddCourseDto } from 'src/dto/req-body-addCourse.dto';
+import { AddCourseDto } from 'src/dto/addCourse.dto';
 
 
 @Injectable()
@@ -69,6 +71,17 @@ export class UsersService {
         }
         return payload;
 
+    }
+
+    async addCourse(reqBodyAddCourse: ReqBodyAddCourseDto): Promise<UsersDB>{
+
+        const {username:username , courseId: courseId} = reqBodyAddCourse.body;
+        const filter = { username: username}
+        const doc = await this.usersModel.findOneAndUpdate(filter,{ coursesId: [...courseId]},{
+            new :true
+        })
+
+        return doc;
     }
 
 }
