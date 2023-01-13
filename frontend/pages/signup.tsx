@@ -1,7 +1,6 @@
 import axios from "axios";
 import { stat } from "fs";
 import { useEffect, useReducer } from "react";
-import PagesStyle from "../styles/pages.module.css";
 import SignupStyle from "../styles/signup.module.css";
 
 type State = {
@@ -231,58 +230,87 @@ export default function Signup(this: any) {
   };
 
   return (
-    <div className={PagesStyle.pages}>
-      <div>
-        <input
-          type="text"
-          name="nickname"
-          placeholder="nickname"
-          onChange={handleNicknameChange}
-        />
-        <input
-          type="text"
-          name="firstname"
-          placeholder="firstname"
-          onChange={handleFirstnameChange}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="lastname"
-          onChange={handleLastnameChange}
-        />
-        <br />
-        <input
-          type="checkbox"
-          name="isInstructor"
-          onChange={handleIsInstructorChange}
-        />
-        R U an Instructor?
-        <input
-          type="text"
-          name="desc"
-          placeholder="desc"
-          onChange={handleDescChange}
-        />
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          onChange={handleUsernameChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={handlePasswordChange}
-        />
-        <button
-          className={SignupStyle.btn}
-          onClick={handleSignup}
-          disabled={state.isButtonDisabled}
-        >
-          Sign Up
-        </button>
+    <div className={SignupStyle.page}>
+      <div className={SignupStyle.questionholder}>
+        <div className={SignupStyle.logo}>GlobalTalk</div>
+        <div className={SignupStyle.question}>
+          Nickname
+          <input
+            type="text"
+            name="nickname"
+            placeholder="Erk"
+            className={SignupStyle.textinput}
+            onChange={handleNicknameChange}
+          />
+        </div>
+        <div className={SignupStyle.question}>
+          First name
+          <input
+            type="text"
+            name="firstname"
+            placeholder="Chrrissa"
+            className={SignupStyle.textinput}
+            onChange={handleFirstnameChange}
+          />
+        </div>
+        <div className={SignupStyle.question}>
+          Last name
+          <input
+            type="text"
+            name="lastname"
+            placeholder="Chotjirasathit"
+            className={SignupStyle.textinput}
+            onChange={handleLastnameChange}
+          />
+        </div>
+        <div className={SignupStyle.question} id={SignupStyle.askinstructor}>
+          R U an Instructor?
+          <input
+            type="checkbox"
+            name="isInstructor"
+            className={SignupStyle.checkboxinput}
+            onChange={handleIsInstructorChange}
+          />
+        </div>
+        <div className={SignupStyle.question}>
+          Description
+          <input
+            type="text"
+            name="desc"
+            placeholder="B Blood Type"
+            className={SignupStyle.textinput}
+            onChange={handleDescChange}
+          />
+        </div>
+        <div className={SignupStyle.question}>
+          Username
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            className={SignupStyle.textinput}
+            onChange={handleUsernameChange}
+          />
+        </div>
+        <div className={SignupStyle.question}>
+          Password
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            className={SignupStyle.textinput}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <div className={SignupStyle.submit}>
+          <button
+            className={SignupStyle.btn}
+            onClick={handleSignup}
+            disabled={state.isButtonDisabled}
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
     </div>
   );

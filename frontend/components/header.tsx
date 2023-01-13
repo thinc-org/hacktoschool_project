@@ -7,6 +7,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import headerStyle from "../styles/header.module.css";
+import Link from "next/link";
 
 export default function Header() {
   const [isNavVisible, setNavVisible] = useState(false);
@@ -14,6 +15,11 @@ export default function Header() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
+    if (mediaQuery.matches) {
+      setSmallScreen(true);
+    } else {
+      setSmallScreen(false);
+    }
     mediaQuery.addListener(handleMediaQueryChange);
     // handleMediaQueryChange(mediaQuery);
 
@@ -67,23 +73,25 @@ export default function Header() {
             </nav>
           </div>
           <div className={headerStyle.headerright}>
-            <button className={headerStyle.loginbtn}>
-              Login <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-            <button className={headerStyle.signupbtn}>Sign Up</button>
+            <a className={headerStyle.loginbtn} href="/login">
+              Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
+            </a>
+            <a className={headerStyle.signupbtn} href="/signup">
+              Sign Up
+            </a>
           </div>
         </div>
       )}
       <div className={headerStyle.mobileheader}>
         <button onClick={toggleNav} className={headerStyle.burger}>
-          {!isNavVisible && isSmallScreen && <FontAwesomeIcon icon={faBars} />}
-          {isNavVisible && isSmallScreen && <FontAwesomeIcon icon={faXmark} />}
+          {!isNavVisible && <FontAwesomeIcon icon={faBars} />}
+          {isNavVisible && <FontAwesomeIcon icon={faXmark} />}
         </button>
         <p className={headerStyle.mobilelogo}>GlobalTalk</p>
         <div className={headerStyle.mobilelogin}>
-          <button className={headerStyle.loginbtn}>
-            Login <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+          <a className={headerStyle.loginbtn} href="/login">
+            Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
+          </a>
         </div>
       </div>
     </header>
