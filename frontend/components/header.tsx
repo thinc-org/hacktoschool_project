@@ -51,6 +51,10 @@ export default function Header() {
     }
   }, []);
 
+  const handleSignOut = async () => {
+    localStorage.removeItem("token");
+  };
+
   const handleMediaQueryChange = (mediaQuery: MediaQueryListEvent) => {
     if (mediaQuery.matches) {
       setSmallScreen(true);
@@ -115,7 +119,7 @@ export default function Header() {
                   Alex <FontAwesomeIcon icon={faChevronDown} />
                 </button>
                 <div className={headerStyle.usercontent}>
-                  <a href="/">
+                  <a href="/" onClick={handleSignOut}>
                     Log Out <FontAwesomeIcon icon={faArrowRight} />
                   </a>
                 </div>
