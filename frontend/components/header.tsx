@@ -88,8 +88,8 @@ export default function Header() {
               <a href="/" className={headerStyle.topics}>
                 Home
               </a>
-              <a href="/textbook" className={headerStyle.topics}>
-                Textbook
+              <a href="/courses" className={headerStyle.topics}>
+                Courses
               </a>
               <a href="/" className={headerStyle.topics}>
                 Statistics

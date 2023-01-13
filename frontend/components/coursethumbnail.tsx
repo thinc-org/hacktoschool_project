@@ -20,7 +20,7 @@ export default function Coursethumbnail(props: CourseProps) {
   return (
     <div className={textbookStyle.coursecontainer}>
       <img
-        src="https://i.ytimg.com/vi/cqQAzpZBpAw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBQXjjI9WVA_s2O0tm0tqOkfUjC-w"
+        src={course.imageURL}
         alt="Song yang bad sad yang boi"
         className={textbookStyle.thumbnailphoto}
       ></img>
