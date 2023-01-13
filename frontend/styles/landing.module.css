@@ -72,6 +72,10 @@
     width: auto;
 }
 
+.signInbutton:hover {
+    color: #757575;
+}
+
 .learnMorebutton {
     font-family: "Montserrat";
     font-style: normal;
@@ -88,6 +92,11 @@
     padding-bottom: 15px;
     border-radius: 17px;
     text-align: center;
+}
+
+.learnMorebutton:hover {
+    color: #FFFFFF;
+    background: #2b788b;
 }
 
 .number {
