@@ -25,7 +25,7 @@ export default function Textbook() {
   const [isMyCourses, setMyCourses] = useState(false);
 
   const handleMyCourses = () => {
-    setMyCourses(true);
+    setMyCourses(!isMyCourses);
   };
   const fetchCourses = async () => {
     const res = await axios.get("http://localhost:4000/courses");
