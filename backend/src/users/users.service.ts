@@ -21,8 +21,6 @@ export class UsersService {
     }
 
     async createUsersData(reqBody: ReqBodyCreateUserDto): Promise<UsersDB> {
-
-
         
         console.log(reqBody)
         const _id = Date.now()+"";
@@ -59,7 +57,7 @@ export class UsersService {
 
 
     async getUserDataForJwt(reqBodyAuthen: ReqBodyCheckUserDto): Promise<JwtDataDto>{
-
+        console.log("Here is key "+process.env.JWT_SECRET)
         const { username:username } = reqBodyAuthen.body;
         const data: UsersDB = await this.usersModel.findOne({ username: username});
         const payload = {

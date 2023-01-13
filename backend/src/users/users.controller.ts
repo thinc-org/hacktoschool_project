@@ -44,6 +44,7 @@ export class UsersController {
             if(await this.usersService.checkPassword(reqBodyCheckUserDto)){
                 console.log("Correct password");
                 const payload: JwtDataDto = await this.usersService.getUserDataForJwt(reqBodyCheckUserDto);
+                
                 const token = this.jwtService.sign(payload);
                 response.status(200) ;
                 console.log("LogIn Success")
