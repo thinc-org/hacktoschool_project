@@ -33,15 +33,19 @@ export class UsersController {
     }
 
     @Post('/checkLogin')
-    async checkLogin(@Body() reqBodyCheckUserDto: ReqBodyCheckUserDto): Promise<string> {
+    async checkLogin(@Body() reqBodyCheckUserDto: ReqBodyCheckUserDto): Promise<boolean> {
         if(await this.coursesService.checkUsernameExists(reqBodyCheckUserDto)){
             if(await this.coursesService.checkPassword(reqBodyCheckUserDto)){
-                return "Logged In";
+                console.log("Logged In");
+                return true;
             } else {
-                return "Wrong password";
+                console.log("Wrong password");
+                return false;
             }
         } else {
-            return "Username not found";
+
+            console.log("Username not found");
+            return false;
         }
     }
 
