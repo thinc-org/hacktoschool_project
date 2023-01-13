@@ -10,6 +10,9 @@ import headerStyle from "../styles/header.module.css";
 import Link from "next/link";
 
 export default function Header() {
+  //set login state here ;.;
+  const [isLogin, setLogin] = useState(false);
+
   const [isNavVisible, setNavVisible] = useState(false);
   const [isSmallScreen, setSmallScreen] = useState(false);
 
@@ -51,7 +54,7 @@ export default function Header() {
               <a href="/" className={headerStyle.topics}>
                 Home
               </a>
-              <a href="/" className={headerStyle.topics}>
+              <a href="/textbook" className={headerStyle.topics}>
                 Textbook
               </a>
               <a href="/" className={headerStyle.topics}>
@@ -73,12 +76,31 @@ export default function Header() {
             </nav>
           </div>
           <div className={headerStyle.headerright}>
-            <a className={headerStyle.loginbtn} href="/login">
-              Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
-            </a>
-            <a className={headerStyle.signupbtn} href="/signup">
-              Sign Up
-            </a>
+            {!isLogin && (
+              <>
+                <a className={headerStyle.loginbtn} href="/login">
+                  Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+                <a className={headerStyle.signupbtn} href="/signup">
+                  Sign Up
+                </a>
+              </>
+            )}
+            {isLogin && (
+              <div className={headerStyle.user}>
+                <div className={headerStyle.userpic}>
+                  <p>A</p>
+                </div>
+                <button className={headerStyle.username}>
+                  Alex <FontAwesomeIcon icon={faChevronDown} />
+                </button>
+                <div className={headerStyle.usercontent}>
+                  <a href="/">
+                    Log Out <FontAwesomeIcon icon={faArrowRight} />
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -89,18 +111,28 @@ export default function Header() {
         </button>
         <p className={headerStyle.mobilelogo}>GlobalTalk</p>
         <div className={headerStyle.mobilelogin}>
-          <a className={headerStyle.loginbtn} href="/login">
-            Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
-          </a>
+          {!isLogin && (
+            <a className={headerStyle.loginbtn} href="/login">
+              Login&nbsp; <FontAwesomeIcon icon={faArrowRight} />
+            </a>
+          )}
+          {isLogin && (
+            <div className={headerStyle.user}>
+              <div className={headerStyle.userpic}>
+                <p>A</p>
+              </div>
+              <button className={headerStyle.username}>
+                Alex <FontAwesomeIcon icon={faChevronDown} />
+              </button>
+              <div className={headerStyle.usercontent}>
+                <a href="/">
+                  Log Out <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </header>
   );
 }
-/*<div className="user">
-<div className="user-pic"><p>A</p></div>
-<button className="user-name">Alex <FontAwesomeIcon icon={faChevronDown}/></button>
-<div className="user-content">
-    <a href="/">Log Out <FontAwesomeIcon icon={faArrowRight}/></a>
-</div>
-</div>*/

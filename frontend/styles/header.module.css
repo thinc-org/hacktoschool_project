@@ -180,7 +180,7 @@
 }
 
 .user {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
     width: max-content;
