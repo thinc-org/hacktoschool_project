@@ -5,6 +5,7 @@ import { UsersDB, UsersDocument } from 'src/schemas/usersdb.schema';
 import * as bcrypt from "bcrypt"
 import { ReqBodyCreateUserDto } from 'src/dto/req-body-create-user.dto';
 import { ReqBodyCheckUserDto } from 'src/dto/req-body-check-user.dto';
+import { JwtDataDto } from 'src/dto/jwt-data.dto';
 
 
 @Injectable()
@@ -57,5 +58,19 @@ export class UsersService {
     }
 
 
+    async getUserDataForJwt(reqBodyAuthen: ReqBodyCheckUserDto): Promise<JwtDataDto>{
+
+        const { username:username } = reqBodyAuthen.body;
+        const data: UsersDB = await this.usersModel.findOne({ username: username});
+        const payload = {
+            username: data.username,
+            role: data.role,
+            nickname: data.nickname,
+            firstname: data.firstname,
+            lastname: data.lastname
+        }
+        return payload;
+
+    }
 
 }
