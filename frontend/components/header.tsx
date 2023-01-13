@@ -17,6 +17,8 @@ export default function Header() {
   const [isNavVisible, setNavVisible] = useState(false);
   const [isSmallScreen, setSmallScreen] = useState(false);
 
+  const [nickname, setNickname] = useState(" ");
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -25,6 +27,14 @@ export default function Header() {
       setLogin(false);
     }
   }, [isLogin]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decode: any = jwt_decode(token);
+      setNickname(decode.nickname);
+    }
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
@@ -113,10 +123,10 @@ export default function Header() {
             {isLogin && (
               <div className={headerStyle.user}>
                 <div className={headerStyle.userpic}>
-                  <p>A</p>
+                  <p>{nickname.slice(0, 1)}</p>
                 </div>
                 <button className={headerStyle.username}>
-                  Alex <FontAwesomeIcon icon={faChevronDown} />
+                  {"  " + nickname} <FontAwesomeIcon icon={faChevronDown} />
                 </button>
                 <div className={headerStyle.usercontent}>
                   <a href="/" onClick={handleSignOut}>
