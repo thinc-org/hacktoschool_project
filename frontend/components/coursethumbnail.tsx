@@ -1,7 +1,22 @@
 import React from "react";
 import textbookStyle from "../styles/textbook.module.css";
 
-export default function Coursethumbnail() {
+type CourseData = {
+  _id: string;
+  courseName: string;
+  courseBy: string;
+  summary: string;
+  detail: string;
+  imageURL: string;
+};
+type CourseProps = {
+  course: CourseData;
+};
+
+export default function Coursethumbnail(props: CourseProps) {
+  const course: CourseData = props.course;
+  console.log(course);
+
   return (
     <div className={textbookStyle.coursecontainer}>
       <img
@@ -10,16 +25,11 @@ export default function Coursethumbnail() {
         className={textbookStyle.thumbnailphoto}
       ></img>
       <div className={textbookStyle.coursecontent}>
-        <p className={textbookStyle.coursename}>Bad Boy</p>
-        <p className={textbookStyle.courseinstructor}>Paper Planes</p>
-        <p className={textbookStyle.coursesummary}>
-          This song is about a sad bad boy cuz she is not interested in bad boy.
-        </p>
+        <p className={textbookStyle.coursename}>{course.courseName}</p>
+        <p className={textbookStyle.courseinstructor}>{course.courseBy}</p>
+        <p className={textbookStyle.coursesummary}>{course.summary}</p>
         <div className={textbookStyle.horline}></div>
-        <p className={textbookStyle.coursedetail}>
-          Secretly press Like in Story You look so good, Luxury girl I want to
-          know what kind of person she likes. Can you win her heart?
-        </p>
+        <p className={textbookStyle.coursedetail}>{course.detail}</p>
         <button className={textbookStyle.addbtn}>Add this course</button>
         <button className={textbookStyle.removebtn}>Remove this course</button>
       </div>
