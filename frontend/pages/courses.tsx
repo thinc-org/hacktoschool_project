@@ -77,7 +77,9 @@ export default function Textbook() {
   //   } else {
   //     fetchMyCoursesId();
   //   }
-  // }, [isMyCourses]);
+  //   console.log(isMyCourses);
+  //   console.log(courses);
+  // }, [isMyCourses, courses]);
 
   useEffect(() => {
     fetchCourses();
