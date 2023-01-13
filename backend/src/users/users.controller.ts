@@ -65,7 +65,7 @@ export class UsersController {
         }
     }
 
-    @Post("update")
+    @Post("updateCourse")
     async addCourse(@Body() reqBodyAddCourseDto: ReqBodyAddCourseDto): Promise<UsersDB>{
         console.log(reqBodyAddCourseDto)
         return await this.usersService.addCourse(reqBodyAddCourseDto);
