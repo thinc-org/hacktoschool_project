@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import headerStyle from "../styles/header.module.css";
 import Link from "next/link";
+import jwt_decode from "jwt-decode";
 
 export default function Header() {
   //set login state here ;.;
@@ -15,6 +16,25 @@ export default function Header() {
 
   const [isNavVisible, setNavVisible] = useState(false);
   const [isSmallScreen, setSmallScreen] = useState(false);
+
+  const [nickname, setNickname] = useState(" ");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  }, [isLogin]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decode: any = jwt_decode(token);
+      setNickname(decode.nickname);
+    }
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
@@ -30,6 +50,20 @@ export default function Header() {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
   }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decode: any = jwt_decode(token);
+      if (decode.exp < Date.now() / 1000) {
+        localStorage.removeItem("token");
+      }
+    }
+  }, []);
+
+  const handleSignOut = async () => {
+    localStorage.removeItem("token");
+  };
 
   const handleMediaQueryChange = (mediaQuery: MediaQueryListEvent) => {
     if (mediaQuery.matches) {
@@ -54,8 +88,8 @@ export default function Header() {
               <a href="/" className={headerStyle.topics}>
                 Home
               </a>
-              <a href="/textbook" className={headerStyle.topics}>
-                Textbook
+              <a href="/courses" className={headerStyle.topics}>
+                Courses
               </a>
               <a href="#" className={headerStyle.topics}>
                 Statistics
@@ -89,13 +123,13 @@ export default function Header() {
             {isLogin && (
               <div className={headerStyle.user}>
                 <div className={headerStyle.userpic}>
-                  <p>A</p>
+                  <p>{nickname.slice(0, 1)}</p>
                 </div>
                 <button className={headerStyle.username}>
-                  Alex <FontAwesomeIcon icon={faChevronDown} />
+                  {"  " + nickname} <FontAwesomeIcon icon={faChevronDown} />
                 </button>
                 <div className={headerStyle.usercontent}>
-                  <a href="/">
+                  <a href="/" onClick={handleSignOut}>
                     Log Out <FontAwesomeIcon icon={faArrowRight} />
                   </a>
                 </div>

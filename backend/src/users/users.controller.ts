@@ -6,6 +6,7 @@ import { UsersDB } from 'src/schemas/usersdb.schema';
 import { UsersService } from './users.service';
 import { JwtService } from '@nestjs/jwt';
 import { JwtDataDto } from 'src/dto/jwt-data.dto';
+import { ReqBodyAddCourseDto } from 'src/dto/req-body-addCourse.dto';
 
 @ApiTags('users')
 @Controller('users')
@@ -44,6 +45,7 @@ export class UsersController {
             if(await this.usersService.checkPassword(reqBodyCheckUserDto)){
                 console.log("Correct password");
                 const payload: JwtDataDto = await this.usersService.getUserDataForJwt(reqBodyCheckUserDto);
+                
                 const token = this.jwtService.sign(payload);
                 response.status(200) ;
                 console.log("LogIn Success")
@@ -61,6 +63,13 @@ export class UsersController {
             console.log("Username not found");
             return "Username Not Found";
         }
+    }
+
+    @Post("update")
+    async addCourse(@Body() reqBodyAddCourseDto: ReqBodyAddCourseDto): Promise<UsersDB>{
+        console.log(reqBodyAddCourseDto)
+        return await this.usersService.addCourse(reqBodyAddCourseDto);
+
     }
 
 

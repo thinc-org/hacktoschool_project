@@ -130,13 +130,11 @@ export default function Signup(this: any) {
       //console.log(found.data);
 
       if (found.data) {
-        console.log("username already exists!");
+        alert("username already exists!");
         return;
-      } else {
-        console.log("Not Found");
       }
     } catch (error) {
-      console.log("Unable to check if the username is already exists or not");
+      alert("Unable to check if the username is already exists or not");
       return;
     }
 
@@ -156,11 +154,11 @@ export default function Signup(this: any) {
           coursesId: [],
         },
       });
-      console.log("Sign Up Completed!");
+      alert("Sign Up Completed!");
       console.log(res);
       return;
     } catch (error) {
-      console.log("create User failed");
+      alert("create User failed");
       console.log(error);
       return;
     }

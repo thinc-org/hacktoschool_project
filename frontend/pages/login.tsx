@@ -1,5 +1,4 @@
 import axios from "axios";
-import { stat } from "fs";
 import { useEffect, useReducer, useState } from "react";
 import SignupStyle from "../styles/signup.module.css";
 
@@ -76,13 +75,13 @@ export default function Login(this: any) {
       );
 
       if (found.data) {
-        console.log("username already exists!");
+        //alert("username already exists!");
       } else {
-        console.log("Not Found");
+        alert("Not Found");
         return;
       }
     } catch (error) {
-      console.log("Unable to check if the username is already exists or not");
+      alert("Unable to check if the username is already exists or not");
       return;
     }
 
@@ -96,24 +95,16 @@ export default function Login(this: any) {
           password: state.password,
         },
       });
-      // console.log(res);
-      // console.log(res.data);
-      // if (res.data) {
-      //   console.log("Login successfully!");
-      // } else {
-      //   console.log("Wrong Password!");
-      // }
-      // return;
 
       if (res.status === 403) {
         console.log(res.data);
       } else if (res.status === 200) {
         const token = res.data;
         localStorage.setItem("token", token);
-        console.log("Login successfully");
+        alert("Login successfully");
       }
     } catch (error) {
-      console.log("Login Failed because of server");
+      alert("Login Failed");
       console.log(error);
       return;
     }

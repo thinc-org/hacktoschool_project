@@ -14,7 +14,7 @@ export default function Textbookheader() {
     <div className={textbookheaderStyle.textbookheader}>
       <div className={textbookheaderStyle.textbooklogo}>
         <FontAwesomeIcon icon={faGraduationCap} />
-        &nbsp;Textbook
+        &nbsp;Courses
       </div>
       <div className={textbookheaderStyle.textbookheaderright}>
         <div className={textbookheaderStyle.setting}>

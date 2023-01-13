@@ -6,6 +6,8 @@ import * as bcrypt from "bcrypt"
 import { ReqBodyCreateUserDto } from 'src/dto/req-body-create-user.dto';
 import { ReqBodyCheckUserDto } from 'src/dto/req-body-check-user.dto';
 import { JwtDataDto } from 'src/dto/jwt-data.dto';
+import { ReqBodyAddCourseDto } from 'src/dto/req-body-addCourse.dto';
+import { AddCourseDto } from 'src/dto/addCourse.dto';
 
 
 @Injectable()
@@ -21,8 +23,6 @@ export class UsersService {
     }
 
     async createUsersData(reqBody: ReqBodyCreateUserDto): Promise<UsersDB> {
-
-
         
         console.log(reqBody)
         const _id = Date.now()+"";
@@ -59,7 +59,7 @@ export class UsersService {
 
 
     async getUserDataForJwt(reqBodyAuthen: ReqBodyCheckUserDto): Promise<JwtDataDto>{
-
+        console.log("Here is key "+process.env.JWT_SECRET)
         const { username:username } = reqBodyAuthen.body;
         const data: UsersDB = await this.usersModel.findOne({ username: username});
         const payload = {
@@ -71,6 +71,19 @@ export class UsersService {
         }
         return payload;
 
+    }
+
+    async addCourse(reqBodyAddCourse: ReqBodyAddCourseDto): Promise<UsersDB>{
+        console.log('here')
+        const {username:username , courseId: courseId} = reqBodyAddCourse.body;
+        
+        const filter = { username: username}
+        const { coursesId:coursesId} = await this.usersModel.findOne(filter)
+        const doc = await this.usersModel.findOneAndUpdate(filter,{ coursesId: [courseId,...coursesId]},{
+            new :true
+        })
+
+        return doc;
     }
 
 }
