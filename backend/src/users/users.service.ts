@@ -74,10 +74,12 @@ export class UsersService {
     }
 
     async addCourse(reqBodyAddCourse: ReqBodyAddCourseDto): Promise<UsersDB>{
-
+        console.log('here')
         const {username:username , courseId: courseId} = reqBodyAddCourse.body;
+        
         const filter = { username: username}
-        const doc = await this.usersModel.findOneAndUpdate(filter,{ coursesId: [...courseId]},{
+        const { coursesId:coursesId} = await this.usersModel.findOne(filter)
+        const doc = await this.usersModel.findOneAndUpdate(filter,{ coursesId: [courseId,...coursesId]},{
             new :true
         })
 
